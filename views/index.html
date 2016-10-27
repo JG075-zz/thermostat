@@ -14,8 +14,14 @@
       <p>Temperature: <span id="temperature"></span></p>
       <p>Power Saving Mode: <span id="power-saving-mode"></span></p>
       <p>Status: <span id="status"></span></p>
-      <p>London Weather: <span id="temp"></span>, <span id="condition"></span></p>
+      <p><span id="cityName"></span> Weather: <span id="temp"></span>, <span id="condition"></span></p>
     </div>
+    <form>
+      <label for="city">Choose your city:</label>
+      <input type="text" name = "city">
+      <input id="city" type="button" value="submit">
+    </form>
+    <br>
     <form id="buttons">
       <input id="up" type="button" value="Up">
       <input id="down" type="button" value="Down">
