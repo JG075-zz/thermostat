@@ -24,4 +24,25 @@ describe("Thermostat", function() {
     myThermo.down();
     expect(myThermo.temperature).toEqual(myThermo.minTemp);
   });
+
+  it("when power saving mode is on, max temperature is 25", function() {
+    myThermo.setPowerSavingMode(true);
+    expect(myThermo.maxTemp).toEqual(25);
+  });
+
+  it("when power saving mode is off, max temperature is 32", function() {
+    myThermo.setPowerSavingMode(false);
+    expect(myThermo.maxTemp).toEqual(32);
+  });
+
+  it("doesn't allow temperature increase above maximum temperature", function() {
+    myThermo.setPowerSavingMode(true);
+    myThermo.temperature = 25;
+    myThermo.up();
+    expect(myThermo.temperature).toEqual(25);
+  });
+
+  it("maximum temperature is 25 by default", function() {
+    expect(myThermo.maxTemp).toEqual(25);
+  });
 });
