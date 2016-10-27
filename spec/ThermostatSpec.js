@@ -66,4 +66,13 @@ describe("Thermostat", function() {
     myThermo.temperature = 26;
     expect(myThermo.status()).toEqual("high-usage");
   });
+
+  it("resets temp to new max if above 25 when mode toggled", function(){
+    myThermo.togglePowerSavingMode()
+    myThermo.temperature = 32;
+    myThermo.togglePowerSavingMode()
+    expect(myThermo.temperature).toEqual(25);
+  });
+
+
 });

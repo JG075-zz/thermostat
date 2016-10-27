@@ -3,7 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title>Thermostat</title>
+    <script src="../src/jquery.js"></script>
     <script src="../src/Thermostat.js"></script>
+    <script src="../src/ui.js"></script>
   </head>
   <body>
 
@@ -18,36 +20,9 @@
       <input id="down" type="button" value="Down">
       <input id="tpsm" type="button" value="Toggle Power Saving Mode">
       <input id="reset" type="button" value="Reset">
-    </form>
-    <script src="jquery.js"></script>
-    <script>
-    $( document ).ready(function() {
-      myThermo = new Thermostat();
-      $('#temperature').html(myThermo.temperature);
-      $('#power-saving-mode').html(myThermo.psm);
-      $('#status').html(myThermo.status());
 
-      $( "#up" ).click(function( event ) {
-          myThermo.up();
-          $('#temperature').html(myThermo.temperature);
-          $('#status').html(myThermo.status());
-      });
-      $( "#down" ).click(function( event ) {
-          myThermo.down();
-          $('#temperature').html(myThermo.temperature);
-          $('#status').html(myThermo.status());
-      });
-      $( "#tpsm" ).click(function( event ) {
-        myThermo.togglePowerSavingMode();
-        $('#power-saving-mode').html(myThermo.psm);
-        $('#status').html(myThermo.status());
-      });
-      $( "#reset" ).click(function( event ) {
-        myThermo.reset();
-        $('#temperature').html(myThermo.temperature);
-        $('#status').html(myThermo.status());
-      });
-    });
-    </script>
+
+    </form>
+
   </body>
 </html>

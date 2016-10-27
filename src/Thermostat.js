@@ -20,6 +20,7 @@ Thermostat.prototype.down = function() {
 Thermostat.prototype.togglePowerSavingMode = function() {
   if (this.maxTemp == 32){
     this.maxTemp = 25;
+    if(this.temperature > 25){this.temperature = 25;}
   } else {
     this.maxTemp = 32;
   }
