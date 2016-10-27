@@ -16,10 +16,10 @@ Thermostat.prototype.down = function() {
   }
 };
 
-Thermostat.prototype.setPowerSavingMode = function(status) {
-  if (status){
+Thermostat.prototype.togglePowerSavingMode = function() {
+  if (this.maxTemp == 32){
     this.maxTemp = 25;
-  } else if (status === false){
+  } else {
     this.maxTemp = 32;
   }
 };

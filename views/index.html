@@ -6,17 +6,44 @@
     <script src="../src/Thermostat.js"></script>
   </head>
   <body>
+
     <h1>Thermostat</h1>
     <div id="panel">
       <p id="temperature">Temperature</p>
       <p id="power-saving-mode">Power Saving Mode</p>
       <p id="status">Status</p>
     </div>
-    <form id="buttons" action="/" method="get">
-      <input type="submit" value="Up">
-      <input type="submit" value="Down">
-      <input type="submit" value="Toggle Power Saving Mode">
-      <input type="submit" value="Reset">
+    <form id="buttons">
+      <input id="up" type="button" value="Up">
+      <input id="down" type="button" value="Down">
+      <input id="tpsm" type="button" value="Toggle Power Saving Mode">
+      <input id="reset" type="button" value="Reset">
     </form>
+    <script src="jquery.js"></script>
+    <script>
+    $( document ).ready(function() {
+      myThermo = new Thermostat();
+
+    $( "#up" ).click(function( event ) {
+
+        myThermo.up();
+    });
+    $( "#down" ).click(function( event ) {
+
+        myThermo.down();
+    });
+    $( "#tpsm" ).click(function( event ) {
+
+      myThermo.togglePowerSavingMode();
+
+    });
+    $( "#reset" ).click(function( event ) {
+
+      myThermo.reset();
+
+    });
+
+});
+    </script>
   </body>
 </html>
