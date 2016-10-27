@@ -45,4 +45,25 @@ describe("Thermostat", function() {
   it("maximum temperature is 25 by default", function() {
     expect(myThermo.maxTemp).toEqual(25);
   });
+
+  it("can be reset to 20", function(){
+    myThermo.up();
+    myThermo.reset();
+    expect(myThermo.temperature).toEqual(20);
+  });
+
+  it("can return low usage status when low usage", function(){
+    myThermo.temperature = 17;
+    expect(myThermo.status()).toEqual("low-usage");
+  });
+
+  it("can return medium usage status when medium usage", function(){
+    myThermo.temperature = 24;
+    expect(myThermo.status()).toEqual("medium-usage");
+  });
+
+  it("can return high usage status when high usage", function(){
+    myThermo.temperature = 26;
+    expect(myThermo.status()).toEqual("high-usage");
+  });
 });
