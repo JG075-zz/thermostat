@@ -2,6 +2,7 @@ function Thermostat() {
   this.temperature = 20;
   this.minTemp = 10;
   this.maxTemp = 25;
+  this.psm = "ON";
 }
 
 Thermostat.prototype.up = function() {
@@ -22,6 +23,7 @@ Thermostat.prototype.togglePowerSavingMode = function() {
   } else {
     this.maxTemp = 32;
   }
+  this.psm = this.maxTemp == 25 ? "ON" : "OFF";
 };
 
 Thermostat.prototype.reset = function() {
