@@ -1,35 +1,141 @@
-<!DOCTYPE html>
-<html>
-  <head>
+<html><head>
     <meta charset="utf-8">
     <title>Thermostat</title>
     <script src="../src/jquery.js"></script>
     <script src="../src/Thermostat.js"></script>
     <script src="../src/ui.js"></script>
-  </head>
-  <body>
+  <style type="text/css">
+    body {
+      background-size: cover;
+      font-family: 'Lobster', cursive;
+    }
 
-    <h1>Thermostat</h1>
-    <div id="panel">
-      <p>Temperature: <span id="temperature"></span></p>
-      <p>Power Saving Mode: <span id="power-saving-mode"></span></p>
-      <p>Status: <span id="status"></span></p>
-      <p><span id="cityName"></span> Weather: <span id="temp"></span>, <span id="condition"></span></p>
+    h1 {
+      text-align: center;
+      font-size: 70px;
+    }
+
+    .container {
+      margin-left: auto;
+      margin-right: auto;
+      width: 40%;
+      text-align: center;
+      color: #fff;
+      font-size: 28px;
+      background: rgba(2, 12, 35, 0.17);
+      box-shadow: 0 1px 10px rgba(0, 0, 0, 0.52);
+      top: 90px;
+      left: 0;
+      position: fixed;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: auto;
+      right: 0;
+      z-index: 2;
+      padding: 0 10px;
+    }
+
+    .background-image {
+      background: url('https://images.unsplash.com/photo-1434280710011-79ded93624a4?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;s=d660ad24ab654f582f8bee27035c3297');
+      background-size: cover;
+      display: block;
+      -webkit-filter: blur(5px);
+      -moz-filter: blur(5px);
+      -o-filter: blur(5px);
+      -ms-filter: blur(5px);
+      filter: blur(5px);
+      height: 100%;
+      left: 0;
+      position: fixed;
+      right: 0;
+      z-index: 1;
+    }
+
+    .button {
+
+    }
+
+    .fullscreen-bg {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      overflow: hidden;
+      z-index: -100;
+    }
+
+    .fullscreen-bg__video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    @media (min-aspect-ratio: 16/9) {
+      .fullscreen-bg__video {
+        height: 300%;
+        top: -100%;
+      }
+  }
+
+    @media (max-aspect-ratio: 16/9) {
+      .fullscreen-bg__video {
+        width: 300%;
+        left: -100%;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .fullscreen-bg {
+        /*background: url('../img/videoframe.jpg') center center / cover no-repeat;*/
+      }
+
+    .fullscreen-bg__video {
+      display: none;
+    }
+  }
+
+  </style>
+  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+  <style type="text/css"></style></head>
+  <body>
+    <!-- <div class="background-image"></div> -->
+    <div class="fullscreen-bg">
+      <video loop muted autoplay class="fullscreen-bg__video">
+          <!-- <source src="video/big_buck_bunny.webm" type="video/webm"> -->
+          <source src="../assets/video/clear_sky.mp4" type="video/mp4">
+          <!-- <source src="video/big_buck_bunny.ogv" type="video/ogg"> -->
+      </video>
     </div>
-    <form>
-      <label for="city">Choose your city:</label>
-      <input type="text" name = "city">
-      <input id="city" type="button" value="submit">
-    </form>
-    <br>
-    <form id="buttons">
-      <input id="up" type="button" value="Up">
-      <input id="down" type="button" value="Down">
-      <input id="tpsm" type="button" value="Toggle Power Saving Mode">
-      <input id="reset" type="button" value="Reset">
-    </form>
+
+    <div class="container">
+      <h1>Thermostat</h1>
+      <div id="panel">
+        <p>Temperature: <span id="temperature" style="
+    color: aquamarine;
+">20</span></p>
+        <p>Power Saving Mode: <span id="power-saving-mode">ON</span></p>
+        <p>Status: <span id="status">medium-usage</span></p>
+        <p><span id="cityName">Luxor</span> Weather: <span id="temp">28 °C</span>, <span id="condition">clear sky</span></p>
+      </div>
+      <form>
+        <label for="city">Choose your city:</label>
+        <input type="text" name="city">
+        <input id="city" type="button" value="submit">
+      </form>
+      <form id="buttons">
+        <input class="button" id="up" type="button" value="Up">
+        <input class="button" id="down" type="button" value="Down">
+        <input class="button" id="tpsm" type="button" value="Toggle Power Saving Mode">
+        <input class="button" id="reset" type="button" value="Reset">
+        <input class="button" id="save" type="button" value="Save">
+      </form>
+  	</div>
     <script>
 
     </script>
-  </body>
-</html>
+
+
+</body></html>
